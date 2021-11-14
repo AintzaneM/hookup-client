@@ -22,7 +22,6 @@ class AddExperience extends Component {
         }
     }
  
-
     showForm = () => {
         if(this.state.clickButtonForm) {
             return (
@@ -85,8 +84,6 @@ class AddExperience extends Component {
             <button onClick={() => this.toggleForm()}>
                 add experience</button>
             {this.showForm()}
-
-             {/* <button>add experience</button> */}
             
             </div>
         )
