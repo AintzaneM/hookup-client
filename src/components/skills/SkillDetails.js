@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import AddExperience from '../experiences/AddExperience';
 
 
 class SkillsDetails extends Component {
@@ -41,9 +42,12 @@ class SkillsDetails extends Component {
                             </Link>
 
                         </div>
-                      
                     )
-                  })}
+                })}
+                <div>
+                    <AddExperience specificSkill={this.state} getSkill={this.getSpecificSkill()}></AddExperience>
+                </div>
+
 
             </div>
         )
