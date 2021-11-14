@@ -39,6 +39,18 @@ class ExperienceDetails extends Component {
         }))
     }
 
+    deleteExperience = ()=> {
+        const {params} = this.props.match;
+        axios.delete(`http://localhost:5000/api/skills/${params.id}/experiences/${params.experienceId}`)
+        .then(()=>{
+            this.props.history.push(`/skills/${params.id}`)
+        })
+        
+        .catch((err) => {
+            console.log(err)
+        })
+    }
+
     componentDidMount(){
         this.getSpecificExperience();
     }
@@ -62,6 +74,7 @@ class ExperienceDetails extends Component {
                     
                     :(<div></div>
                 )}
+                <button onClick={()=>this.deleteExperience(this.state._id)}>Delete experience</button>
                 
 
             </div>
