@@ -1,25 +1,88 @@
-import logo from './logo.svg';
 import './App.css';
+import { Route, Switch } from 'react-router-dom';
+import SkillList from './components/skills/SkillList';
+import Homepage from './components/Homepage';
+import Navbar from './components/navbar/Navbar';
+import React from 'react';
+import Login from "./components/auth/Login";
+import Signup from './components/auth/Signup';
+import authService from './components/auth/auth-service';
+import SkillsDetails from './components/skills/SkillDetails';
+import ExperienceDetails from './components/experiences/ExperienceDetails';
+// import ProtectedRoute from './components/auth/ProtectedRoute';
 
-function App() {
-  return (
+class App extends React.Component {
+
+  state = {
+    isLoggedIn: false,
+    user: null
+  };
+
+  getTheUser = (userObj, loggedIn) => {
+    this.setState({
+      user: userObj,
+      isLoggedIn: loggedIn
+    });
+  };
+
+  fetchUser = () => {
+    if (this.state.user === null) {
+      authService
+        .loggedin()
+        .then(data => {
+          this.setState({
+            user: data,
+            isLoggedIn: true
+          });
+        })
+        .catch(err => {
+          this.setState({
+            user: null,
+            isLoggedIn: false
+          });
+        });
+    }
+  };
+
+  componentDidMount() {
+    this.fetchUser();
+  }
+
+  render() {
+     return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar userData={this.state.user} userIsLoggedIn={this.state.isLoggedIn} getUser={this.getTheUser} />
+
+      <Switch>
+          <Route exact path="/"  >
+            <Homepage/>
+          </Route>
+          <Route exact path="/signup" render={props => <Signup {...props} getUser={this.getTheUser} />} />
+          <Route exact path="/login" render={props => <Login {...props} getUser={this.getTheUser} />} />
+          
+
+      
+
+          <Route exact path="/skills">
+            <SkillList/>
+          </Route>
+
+          <Route exact path="/skills/:id" component={SkillsDetails}></Route>
+          <Route exact path="/skills/:id/experiences/:experienceId" component = {ExperienceDetails}></Route>
+
+      </Switch>
+     
     </div>
   );
+    
+  }
+
+
+
+
+
+
+ 
 }
 
 export default App;
