@@ -30,10 +30,17 @@ class App extends React.Component {
       authService
         .loggedin()
         .then(data => {
+          if (data) {
           this.setState({
             user: data,
             isLoggedIn: true
           });
+          } else {
+            this.setState({
+              user: null,
+              isLoggedIn: false
+            });
+          }
         })
         .catch(err => {
           this.setState({
