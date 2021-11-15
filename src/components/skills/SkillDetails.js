@@ -45,7 +45,7 @@ class SkillsDetails extends Component {
                     )
                 })}
                 <div>
-                    <AddExperience specificSkill={this.state} getSkill={this.getSpecificSkill}></AddExperience>
+                    <AddExperience specificSkill={this.state} getSkill={this.getSpecificSkill} specificOwner={this.state}></AddExperience>
                 </div>
 
 

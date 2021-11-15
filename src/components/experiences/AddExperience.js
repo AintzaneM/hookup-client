@@ -62,13 +62,18 @@ class AddExperience extends Component {
         event.preventDefault();
         const namePosition = this.state.namePosition;
         const description = this.state.description;
-        const skill = this.props.specificSkill._id
+        const skill = this.props.specificSkill._id;
+        const owner = this.props.specificOwner.experiencesList;
+        console.log("owneradd",owner)
 
-        axios.post('http://localhost:5000/api/experiences', {
+        axios.post('http://localhost:5001/api/experiences', {
             namePosition,
             description,
             skill,
-        })
+            owner
+
+        }, { withCredentials: true })
+
         .then(() => {
             this.props.getSkill();
             this.setState({namePosition:"", description:""})
