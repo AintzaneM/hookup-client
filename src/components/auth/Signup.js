@@ -4,7 +4,7 @@ import authService from "./auth-service";
 
 class Signup extends Component {
 
-  state = { email: '', password: '' }
+  state = { email: '', password: '', errorMsg: ''}
 
   handleFormSubmit = (event) => {
     event.preventDefault();
@@ -15,10 +15,16 @@ class Signup extends Component {
         this.setState({
             email: "",
             password: "",
+            errorMsg: "",
         });
         this.props.getUser(createdUser, true);
     })
-    .catch(error => console.log(error))
+    .catch((errorMsg) => {
+      this.setState({
+       errorMsg:
+         "Password 8 characters. Username must be unique.",
+     });
+    });
   }
    
   handleChange = (event) => {
@@ -30,6 +36,7 @@ class Signup extends Component {
     return(
       <div>
         <form onSubmit={this.handleFormSubmit}>
+        {this.state.errorMsg && <p>{this.state.errorMsg}</p>}
         <p>SIGNUP</p>
           <label>
           Email:
