@@ -13,7 +13,7 @@ class SkillList extends Component {
     }
 
     getAllSkills = () => {
-        axios.get("http://localhost:5000/api/skills")
+        axios.get("http://localhost:5001/api/skills", { withCredentials: true })
         .then(skillsFromApi => {
             // console.log(skillsFromApi)
             this.setState ({
@@ -27,11 +27,9 @@ class SkillList extends Component {
     }
         
 
-
-
     render() {
         return (
-            <div style={{width: '60%', float:"left"}}>
+            <div>
                 <p>this is skilllist</p>
                 {this.state.listOfSkills.map((skill) => {
                     return (

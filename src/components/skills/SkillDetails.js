@@ -9,7 +9,7 @@ class SkillsDetails extends Component {
 
    getSpecificSkill = () => {
     const {params} = this.props.match;
-    axios.get(`http://localhost:5000/api/skills/${params.id}`)
+    axios.get(`http://localhost:5001/api/skills/${params.id}`, { withCredentials: true })
     .then((skillFromApi) => {
         const specificSkill = skillFromApi.data; 
         this.setState(specificSkill)
@@ -45,7 +45,7 @@ class SkillsDetails extends Component {
                     )
                 })}
                 <div>
-                    <AddExperience specificSkill={this.state} getSkill={this.getSpecificSkill()}></AddExperience>
+                    <AddExperience specificSkill={this.state} getSkill={this.getSpecificSkill}></AddExperience>
                 </div>
 
 
