@@ -13,7 +13,7 @@ class SkillList extends Component {
     }
 
     getAllSkills = () => {
-        axios.get("http://localhost:5001/api/skills", { withCredentials: true })
+        axios.get(`${process.env.REACT_APP_API_URL}/skills`, { withCredentials: true })
         .then(skillsFromApi => {
             // console.log(skillsFromApi)
             this.setState ({

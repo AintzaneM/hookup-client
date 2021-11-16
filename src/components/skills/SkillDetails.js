@@ -9,7 +9,7 @@ class SkillsDetails extends Component {
 
    getSpecificSkill = () => {
     const {params} = this.props.match;
-    axios.get(`http://localhost:5001/api/skills/${params.id}`, { withCredentials: true })
+    axios.get(`${process.env.REACT_APP_API_URL}/skills/${params.id}`, { withCredentials: true })
     .then((skillFromApi) => {
         const specificSkill = skillFromApi.data; 
         this.setState(specificSkill)
@@ -39,6 +39,7 @@ class SkillsDetails extends Component {
                         <div key={index}>
                             <Link to={`/skills/${this.state._id}/experiences/${experience._id}`}>
                                 {experience.namePosition}
+                                {console.log("experience owner in project details", experience.owner)}
                             </Link>
 
                         </div>

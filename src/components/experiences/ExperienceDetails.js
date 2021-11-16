@@ -11,25 +11,23 @@ class ExperienceDetails extends Component {
             namePosition: "",
             description: "",
             clickButtonForm: false,
-            owner: "",
+            owner: this.props.user_id,
         }
     }
 
     getSpecificExperience = () => {
         const {params} = this.props.match;
         // console.log(this.props.match)
-        axios.get(`http://localhost:5001/api/skills/${params.id}/experiences/${params.experienceId}`)
+        axios.get(`${process.env.REACT_APP_API_URL}/skills/${params.id}/experiences/${params.experienceId}`)
         .then((experienceFromApi) => {
             const theExperience = experienceFromApi.data
-            // console.log("Experience fromDB", theExperience)
+            console.log("Experience fromDB", theExperience.owner)
             this.setState ({
                 namePosition: theExperience.namePosition,
                 description: theExperience.description,
                 skill: theExperience.skill,
                 owner: theExperience.owner
-                
             });
-
         })
         .catch((err) => {
             console.log(err);
@@ -43,17 +41,20 @@ class ExperienceDetails extends Component {
         }))
     }
 
+
+
     deleteExperience = ()=> {
         const {params} = this.props.match;
-        axios.delete(`http://localhost:5001/api/skills/${params.id}/experiences/${params.experienceId}`)
+        axios.delete(`${process.env.REACT_APP_API_URL}/skills/${params.id}/experiences/${params.experienceId}`)
         .then(()=>{
             this.props.history.push(`/skills/${params.id}`)
         })
-        
+
         .catch((err) => {
             console.log(err)
         })
     }
+
 
     ownershipCheck = (experience) => {
         const currentUserIsOwner =
@@ -61,18 +62,17 @@ class ExperienceDetails extends Component {
         //   console.log("props_user", this.props.user)
         //   console.log("experience_owner", experience.owner )
         //   console.log("props_user_id", this.props.user._id)
-        
-     
         if (currentUserIsOwner) {
           return (
             <div>
               <button onClick={() => this.deleteExperience(this.state._id)}>
                 Delete project
               </button>
+
             </div>
           );
         }
-        console.log("current user", currentUserIsOwner)
+        // console.log("current user", currentUserIsOwner)
       };
 
 
@@ -80,7 +80,7 @@ class ExperienceDetails extends Component {
     componentDidMount(){
         this.getSpecificExperience();
     }
-        
+
 
     render() {
         return (
@@ -91,25 +91,30 @@ class ExperienceDetails extends Component {
                 <p>{this.state.description}</p>
 
                 <button onClick={this.handleClickButton}>Edit Experience</button>
-                {this.state.clickButtonForm === true ? (
+                {this.state.clickButtonForm === true ? 
+                
+                //  {console.log("state owneeeer", this.state.owner)}
+                //  {console.log("state useeer", this.props.user._id)}
                     <EditExperience
                     handleClickButton={() => this.handleClickButton()}
                     theExperience={this.state}
                     getData={()=>this.getSpecificExperience()}
                     {...this.props}
-                    />)
-                    
-                    :(<div></div>
-                )}
+                    />
+                    :
+                    <div></div>
+                }
+
+
                 <div> {this.ownershipCheck(this.state)} </div>
                 {/* <button onClick={()=>this.deleteExperience(this.state._id)}>Delete experience</button> */}
-                
+
 
             </div>
         )
     }
 }
- 
+
 
 
 export default ExperienceDetails;

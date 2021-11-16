@@ -7,6 +7,8 @@ class EditExperience extends Component {
         this.state = {
             namePosition: this.props.theExperience.namePosition,
             description: this.props.theExperience.description,
+            skill: this.props.theExperience.skill,
+            owner: this.props.theExperience.owner,
         }
 
         
@@ -23,13 +25,18 @@ class EditExperience extends Component {
         const {params} = this.props.match;
         const namePosition = this.state.namePosition;
         const description = this.state.description;
+        const skill = this.state.skill;
+        const owner = this.state.owner;
+        console.log("the owneeer of experienceee",owner)
 
-        axios.put(`http://localhost:5000/api/skills/${params.id}/experiences/${params.experienceId}`,{namePosition, description})
+        axios.put(`${process.env.REACT_APP_API_URL}/skills/${params.id}/experiences/${params.experienceId}`,{namePosition, description, skill, owner}, { withCredentials: true })
         .then(()=> {
             this.props.getData();
-            this.props.handleClickButton();
+            this.props.handleClickButton();          
         })
         .catch((err) => console.log(err))
+
+
     }
 
     render() {

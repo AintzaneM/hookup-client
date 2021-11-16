@@ -66,7 +66,7 @@ class AddExperience extends Component {
         const owner = this.props.specificOwner.experiencesList;
         console.log("owneradd",owner)
 
-        axios.post('http://localhost:5001/api/experiences', {
+        axios.post(`${process.env.REACT_APP_API_URL}/experiences`, {
             namePosition,
             description,
             skill,
