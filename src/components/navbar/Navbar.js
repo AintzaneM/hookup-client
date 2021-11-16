@@ -26,7 +26,7 @@ class Navbar extends React.Component {
       return (
         <nav className="nav-style">
           <ul>
-            {/* {userIsLoggedIn && <li>Welcome, {userData.email}</li>} */}
+            {userIsLoggedIn && <li>Welcome, {userData.email}</li>}
             <li>
               <Link to="/" style={{ textDecoration: 'none' }}>
                 Homepage
@@ -52,7 +52,7 @@ class Navbar extends React.Component {
             <ul>
               <li>
                 <Link to="/login" style={{ textDecoration: 'none' }}>
-                  Login
+                  Login:):)
                 </Link>
               </li>
               <li>
