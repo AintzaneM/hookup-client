@@ -9,7 +9,7 @@ import Signup from './components/auth/Signup';
 import authService from './components/auth/auth-service';
 import SkillsDetails from './components/skills/SkillDetails';
 import ExperienceDetails from './components/experiences/ExperienceDetails';
-// import ProtectedRoute from './components/auth/ProtectedRoute';
+import ProtectedRoute from './components/auth/ProtectedRoute';
 
 class App extends React.Component {
 
@@ -31,10 +31,10 @@ class App extends React.Component {
         .loggedin()
         .then(data => {
           if (data) {
-          this.setState({
-            user: data,
-            isLoggedIn: true
-          });
+            this.setState({
+              user: data,
+              isLoggedIn: true
+            });
           } else {
             this.setState({
               user: null,
@@ -56,32 +56,33 @@ class App extends React.Component {
   }
 
   render() {
-     return (
-    <div className="App">
-      <Navbar userData={this.state.user} userIsLoggedIn={this.state.isLoggedIn} getUser={this.getTheUser} />
+    return (
+      <div className="App">
+        <Navbar userData={this.state.user} userIsLoggedIn={this.state.isLoggedIn} getUser={this.getTheUser} />
 
-      <Switch>
+        <Switch>
           <Route exact path="/"  >
-            <Homepage/>
+            <Homepage />
           </Route>
           <Route exact path="/signup" render={props => <Signup {...props} getUser={this.getTheUser} />} />
           <Route exact path="/login" render={props => <Login {...props} getUser={this.getTheUser} />} />
-          
 
-      
 
-          <Route exact path="/skills">
-            <SkillList/>
-          </Route>
 
+
+          <ProtectedRoute user={this.state.user} userIsLoggedIn={this.state.isLoggedIn} exact path="/skills" component= {SkillList}/>
+            
+         
+
+          <ProtectedRoute user={this.state.user} userIsLoggedIn={this.state.isLoggedIn} exact path="/skills/:id" component={SkillsDetails}/>
           <Route exact path="/skills/:id/experiences/:experienceId" render={props=> <ExperienceDetails {...props} user={this.state.user}/>}/>
           {console.log("state", this.state.user)}
 
-      </Switch>
-     
-    </div>
-  );
-    
+        </Switch>
+
+      </div>
+    );
+
   }
 
 
@@ -89,7 +90,7 @@ class App extends React.Component {
 
 
 
- 
+
 }
 
 export default App;
