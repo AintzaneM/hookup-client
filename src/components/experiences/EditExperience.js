@@ -10,7 +10,6 @@ class EditExperience extends Component {
             skill: this.props.theExperience.skill,
             owner: this.props.theExperience.owner,
         }
-
         
     }
 
@@ -27,7 +26,6 @@ class EditExperience extends Component {
         const description = this.state.description;
         const skill = this.state.skill;
         const owner = this.state.owner;
-        console.log("the owneeer of experienceee",owner)
 
         axios.put(`${process.env.REACT_APP_API_URL}/skills/${params.id}/experiences/${params.experienceId}`,{namePosition, description, skill, owner}, { withCredentials: true })
         .then(()=> {
