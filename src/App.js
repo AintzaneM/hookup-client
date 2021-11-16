@@ -74,8 +74,8 @@ class App extends React.Component {
             <SkillList/>
           </Route>
 
-          <Route exact path="/skills/:id" component={SkillsDetails}></Route>
-          <Route exact path="/skills/:id/experiences/:experienceId" component = {ExperienceDetails}></Route>
+          <Route exact path="/skills/:id/experiences/:experienceId" render={props=> <ExperienceDetails {...props} user={this.state.user}/>}/>
+          {console.log("state", this.state.user)}
 
       </Switch>
      
