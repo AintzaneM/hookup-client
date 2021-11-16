@@ -50,6 +50,11 @@ class SkillsDetails extends Component {
                 </div>
 
 
+                <Link to={`/skills`}>
+                    <button>Back to skills</button>
+                </Link>
+
+
             </div>
         )
     }
