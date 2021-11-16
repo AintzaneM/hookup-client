@@ -12,8 +12,7 @@ class SkillsDetails extends Component {
     axios.get(`${process.env.REACT_APP_API_URL}/skills/${params.id}`, { withCredentials: true })
     .then((skillFromApi) => {
         const specificSkill = skillFromApi.data; 
-        this.setState(specificSkill)
-        // console.log(specificSkill)  
+        this.setState(specificSkill) 
         })
         .catch((err) => {
             console.log(err);
@@ -28,11 +27,7 @@ class SkillsDetails extends Component {
         return (
             <div>
                 <p><strong>{this.state.title}</strong></p>
-                <p>We are going to see the Experiences LIST</p>
-                
-                {/* {console.log("title",this.state.namePosition)} */}
-
-                
+                <p>We are going to see the Experiences LIST</p>                
                 {this.state.experiencesList && this.state.experiencesList.length > 0 && <p>Experiences</p>}
                 {this.state.experiencesList && this.state.experiencesList.map((experience, index) => {
                     return (
@@ -41,20 +36,16 @@ class SkillsDetails extends Component {
                                 {experience.namePosition}
                                 {console.log("experience owner in project details", experience.owner)}
                             </Link>
-
                         </div>
                     )
                 })}
                 <div>
                     <AddExperience specificSkill={this.state} getSkill={this.getSpecificSkill} specificOwner={this.state}></AddExperience>
+                    <Link to={`/skills`}>
+                        <button>Back to skills</button>
+                    </Link>
                 </div>
-
-
-                <Link to={`/skills`}>
-                    <button>Back to skills</button>
-                </Link>
-
-
+                
             </div>
         )
     }

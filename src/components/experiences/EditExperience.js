@@ -9,8 +9,7 @@ class EditExperience extends Component {
             description: this.props.theExperience.description,
             skill: this.props.theExperience.skill,
             owner: this.props.theExperience.owner,
-        }
-        
+        }   
     }
 
     handleChange = (event) => {
@@ -33,8 +32,6 @@ class EditExperience extends Component {
             this.props.handleClickButton();          
         })
         .catch((err) => console.log(err))
-
-
     }
 
     render() {
@@ -51,7 +48,6 @@ class EditExperience extends Component {
                             onChange = {(event) => this.handleChange(event)}
                         />                           
                     </label>
-
                     <label>
                         Description
                         <input
@@ -61,9 +57,7 @@ class EditExperience extends Component {
                             onChange = {(event) => this.handleChange(event)}
                         />
                     </label>
-                    
-                    <button>submit edition</button>
-
+                    <button>Submit your edition</button>
                 </form>
             </div>
         )

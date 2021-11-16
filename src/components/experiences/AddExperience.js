@@ -1,7 +1,5 @@
 import axios from 'axios';
 import React, { Component } from 'react';
-// import axios from 'axios';
-// import { Link } from 'react-router-dom';
 
 
 class AddExperience extends Component {
@@ -45,7 +43,7 @@ class AddExperience extends Component {
                                 onChange={(event) => this.handleChange(event)}
                             />
                         </label>
-                        <button>Submit newExperience</button>
+                        <button>Submit your experience!</button>
                     </form>
                 </div>
             )
@@ -53,7 +51,6 @@ class AddExperience extends Component {
     }
 
     handleChange = (event) => {
-        // event.preventDefault()
         const {name, value}= event.target;
         this.setState({[name]: value})
     }
@@ -64,16 +61,8 @@ class AddExperience extends Component {
         const description = this.state.description;
         const skill = this.props.specificSkill._id;
         const owner = this.props.specificOwner.experiencesList;
-        console.log("owneradd",owner)
 
-        axios.post(`${process.env.REACT_APP_API_URL}/experiences`, {
-            namePosition,
-            description,
-            skill,
-            owner
-
-        }, { withCredentials: true })
-
+        axios.post(`${process.env.REACT_APP_API_URL}/experiences`, {namePosition, description, skill, owner}, { withCredentials: true })
         .then(() => {
             this.props.getSkill();
             this.setState({namePosition:"", description:""})
@@ -87,7 +76,7 @@ class AddExperience extends Component {
 
             <div>
             <button onClick={() => this.toggleForm()}>
-                add experience</button>
+                Add your experience!</button>
             {this.showForm()}
             
             </div>

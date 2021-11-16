@@ -13,12 +13,10 @@ class ExperienceDetails extends Component {
             clickButtonForm: false,
             owner: this.props.user_id,
         }
-        console.log("YEEEES", this.state.owner)
     }
 
     getSpecificExperience = () => {
         const { params } = this.props.match;
-        // console.log(this.props.match)
         axios.get(`${process.env.REACT_APP_API_URL}/skills/${params.id}/experiences/${params.experienceId}`)
             .then((experienceFromApi) => {
                 const theExperience = experienceFromApi.data
@@ -38,7 +36,6 @@ class ExperienceDetails extends Component {
     handleClickButton = () => {
         this.setState((prevState) => ({
             clickButtonForm: !prevState.clickButtonForm
-
         }))
     }
 
@@ -64,6 +61,8 @@ class ExperienceDetails extends Component {
                         Delete experience
                     </button>
 
+                    <button onClick={this.handleClickButton}>Edit Experience</button>
+
                 </div>
             );
         }
@@ -80,10 +79,11 @@ class ExperienceDetails extends Component {
                 <p>experience details</p>
                 <p>{this.state.namePosition}</p>
                 <p>{this.state.description}</p>
-                <button onClick={this.handleClickButton}>Edit Experience</button>
+                
                 {this.state.clickButtonForm === true && (this.props.user && (this.state.owner === this.props.user._id)) ?
 
                     <div>
+                        
                         <EditExperience handleClickButton={() => this.handleClickButton()} theExperience={this.state} getData={() => this.getSpecificExperience()} {...this.props}
                         />
                     </div>

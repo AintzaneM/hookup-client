@@ -19,11 +19,12 @@ class Signup extends Component {
         });
         this.props.getUser(createdUser, true);
     })
-    .catch((errorMsg) => {
+    .catch((error) => {
       this.setState({
        errorMsg:
-         "Password 8 characters. Username must be unique.",
+         "Password needs to have at least 8 characters (at least one number, one lowercase and one uppercase letter.) </br> Username must be unique.",
      });
+     console.log(error);
     });
   }
    

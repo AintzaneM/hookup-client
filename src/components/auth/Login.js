@@ -46,8 +46,6 @@ class Login extends Component {
             <input type="password" name="password" value={this.state.password} onChange={this.handleChange} />
           </label>
 
-          
- 
           <button type="submit"> Login </button>
         </form>
  
