@@ -35,36 +35,39 @@ class Signup extends Component {
 
   render(){
     return(
-      <div>
+      <div className="form-signup">
         <form onSubmit={this.handleFormSubmit}>
         {this.state.errorMsg && <p>{this.state.errorMsg}</p>}
-        <p>SIGNUP</p>
-          <label>
-          Email:
-            <input
-              type="text"
-              name="email"
-              value={this.state.email}
-              onChange={this.handleChange}
-            />
-          </label>
-   
-          <label>
-          Password:
-            <input
-              type="password"
-              name="password"
-              value={this.state.password}
-              onChange={this.handleChange}
-            />
-          </label>
-   
-          <button type="submit"> Signup </button>
+        <div className="input-container-signup">
+          <p className="title-signup">Welcome!  <br />Let's create your account!</p>
+            <label>
+            Email
+              <input
+                type="text"
+                name="email"
+                value={this.state.email}
+                onChange={this.handleChange}
+                placeholder="you@email.com" 
+              />
+            </label>
+            <label>
+            Password
+              <input
+                type="password"
+                name="password"
+                value={this.state.password}
+                onChange={this.handleChange}
+                placeholder="********" 
+              />
+            </label>
+    
+          <button type="submit"><strong> Signup </strong> </button>
+          </div>
         </form>
    
         <p>
           Already have an account?
-          <Link to={"/"}> Login</Link>
+          <Link to={"/login"}> Login</Link>
         </p>
    
       </div>

@@ -1,38 +1,110 @@
 .App {
   text-align: center;
+
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+body {
+  text-align: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/*NAVBAR*/
+.nav-style{
+  background-color: white;
+  height:80px;
   display: flex;
-  flex-direction: column;
+  justify-content: flex-end;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  
+  /* position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80px; */
+
 }
 
-.App-link {
-  color: #61dafb;
+ul{
+  display: flex;
+  flex-direction: row;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+li{
+  margin-left: 3rem;
+  margin-right: 3rem;
+  list-style: none;
+}
+
+
+/*FORM LOGIN + FORM SIGNUP*/
+.form-login , .form-signup{
+  background-color:white;
+  border-radius: 20px;
+  box-sizing: border-box;
+  height: 500px;
+  padding: 20px;
+  width: 320px;
+  position: absolute;
+  transform: translate(-50%,-50%);
+  top: 50%;
+  left: 50%;
+}
+
+.title-login , .title-signup  {
+  color: #97D9E1;
+  font-family: sans-serif;
+  font-size: 36px;
+  font-weight: 600;
+  margin-top: 30px;
+}
+
+.form {
+  background-color: #15172b;
+  border-radius: 20px;
+  box-sizing: border-box;
+  height: 500px;
+  padding: 20px;
+  width: 320px;
+}
+
+input {
+  background-color:#97D9E1;
+  border-radius: 12px;
+  border: 0;
+  box-sizing: border-box;
+  color: black;
+  font-size: 18px;
+  height: 100%;
+  outline: 0;
+  padding: 4px 20px 0;
+  width: 100%;
+  margin-bottom: 40px;
+  padding: 0.5rem;
+}
+
+
+.input-container-login , .input-container-signup{
+  position: relative;
+  width: 100%;
+}
+
+button {
+  background: #97D9E1;
+  border: 1px solid #97D9E1;
+  border-radius: 12px;
+  color:black;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  padding: 8px 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: 0.3s ease background;
+  width: 100%;
+}
+
+form button:hover {
+  background: #303245;
+  color: #fff;
+  transition: 0.3s ease background;
 }

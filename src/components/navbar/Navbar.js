@@ -52,9 +52,10 @@ class Navbar extends React.Component {
             <ul>
               <li>
                 <Link to="/login" style={{ textDecoration: 'none' }}>
-                  Login:):)
+                  Login
                 </Link>
               </li>
+              <span/>
               <li>
                 <Link to="/signup" style={{ textDecoration: 'none' }}>
                   Signup
