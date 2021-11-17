@@ -18,6 +18,7 @@ class Signup extends Component {
             errorMsg: "",
         });
         this.props.getUser(createdUser, true);
+        this.props.history.push("/skills");
     })
     .catch((error) => {
       this.setState({
