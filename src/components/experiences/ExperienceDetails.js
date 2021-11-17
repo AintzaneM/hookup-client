@@ -64,9 +64,6 @@ class ExperienceDetails extends Component {
                     </button>
 
                     <button onClick={this.handleClickButton}>Edit Experience</button>
-
-                    <button onClick={this.handleClickButton}>Contact with owner</button>
-
                 </div>
             );
         }
