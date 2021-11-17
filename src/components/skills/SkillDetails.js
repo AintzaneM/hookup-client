@@ -32,7 +32,7 @@ class SkillsDetails extends Component {
                 {this.state.experiencesList && this.state.experiencesList.map((experience, index) => {
                     return (
                         <div key={index}>
-                            {<img src={experience.imageUrl}/>}
+                            {<img src={experience.imageUrl} alt=""/>}
                             <Link to={`/skills/${this.state._id}/experiences/${experience._id}`}>
                                 {experience.namePosition}
                                 {console.log("experience owner in project details", experience.owner)}

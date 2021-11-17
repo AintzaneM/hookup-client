@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { Component } from 'react';
+import authService from '../auth/auth-service';
 
 
 class AddSkill extends Component {
@@ -8,6 +9,7 @@ class AddSkill extends Component {
         this.state = {
             title:"",
             description: "",
+            imageUrl:"",
             experiencesList:[],
             clickButtonForm: false,
         }
@@ -20,6 +22,8 @@ class AddSkill extends Component {
             this.setState({clickButtonForm: false})
         }
     }
+
+    
  
     showForm = () => {
         if(this.state.clickButtonForm) {
@@ -45,6 +49,14 @@ class AddSkill extends Component {
                                 onChange={(event) => this.handleChange(event)}
                             />
                         </label>
+                        <label>
+                            <input 
+                                placeholder="Image"
+                                type="file"
+                                name="imageUrl"
+                                onChange={(event) => this.handleFileUpload(event)}
+                            />
+                        </label>
                         <button>Submit your the new skill!</button>
                         </div>
                     </form>
@@ -58,13 +70,34 @@ class AddSkill extends Component {
         this.setState({[name]: value})
     }
 
+    handleFileUpload = (event) => {
+        // console.log("The file to be uploaded is: ", event.target.files[0]);
+     
+        const uploadData = new FormData();
+     
+        // imageUrl => this name has to be the same as in the model since we pass
+        // req.body to .create() method when creating a new thing in '/api/things/create' POST route
+        uploadData.append('imageUrl', event.target.files[0]);
+     
+        authService
+          .handleUpload(uploadData)
+          .then(response => {
+            console.log("response is: ", response);
+            // after the console.log we can see that response carries 'secure_url' which we can use to update the state
+            this.setState({ imageUrl: response.secure_url });
+          })
+          .catch(err => console.log('Error while uploading the file: ', err));
+    };
+
+
     handleFormSubmit = (event) => {
         event.preventDefault();
         const title = this.state.title;
         const description = this.state.description;
+        const imageUrl = this.state.imageUrl;
         const experiencesList = this.state.experiencesList
 
-        axios.post(`${process.env.REACT_APP_API_URL}/skills/`, {title, description, experiencesList}, { withCredentials: true })
+        axios.post(`${process.env.REACT_APP_API_URL}/skills`, {title, description, imageUrl, experiencesList}, { withCredentials: true })
         .then(() => {
             this.props.getSkill();
             this.setState({title:"", description:""})

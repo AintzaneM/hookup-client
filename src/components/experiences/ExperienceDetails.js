@@ -22,7 +22,6 @@ class ExperienceDetails extends Component {
         axios.get(`${process.env.REACT_APP_API_URL}/skills/${params.id}/experiences/${params.experienceId}`)
             .then((experienceFromApi) => {
                 const theExperience = experienceFromApi.data
-                console.log("Experience fromDB", theExperience.owner)
                 this.setState({
                     namePosition: theExperience.namePosition,
                     description: theExperience.description,
@@ -79,7 +78,7 @@ class ExperienceDetails extends Component {
         return (
             <div>
                 <p>experience details</p>
-                <img src={this.state.imageUrl}/>
+                <img src={this.state.imageUrl} alt=""/>
                 <p>{this.state.namePosition}</p>
                 <p>{this.state.description}</p>
 

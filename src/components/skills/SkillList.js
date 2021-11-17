@@ -31,23 +31,28 @@ class SkillList extends Component {
         return (
             
             <div>
-                {this.state.userRole === "guest" ?
+                {this.state.userRole === "admin" ?
                     <div></div>
                     :
                     <div>
                         <AddSkill specificSkill={this.state} getSkill={this.getAllSkills} specificOwner={this.state}></AddSkill>
                     </div>
                 }
-                <p>this is skilllist</p>
-                {this.state.listOfSkills.map((skill) => {
+                <h1 className="title-skilList">Choose the skill you're interested in and explore the different experiences</h1>
+                <div className="SkilList">
+                    {this.state.listOfSkills.map((skill) => {
                     return (
-                        <div key={skill._id}>
-                            <Link to={`/skills/${skill._id}`}>
+                        <div className="SkilList-items" key={skill._id}>
+                                {<img src={skill.imageUrl} alt=""/>}
+                            <Link className="Link" to={`/skills/${skill._id}`}>
+                                
                                 <h3>{skill.title}</h3>   
                             </Link>
                         </div>
                     )
-                })}
+                
+                    })}
+                </div>
                
 
             </div>
