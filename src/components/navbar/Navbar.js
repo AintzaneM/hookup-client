@@ -10,15 +10,6 @@ class Navbar extends React.Component {
     });
   };
  
-  
-  // return (
-  //   <nav className="nav-style">
-  //     <ul>
-  //       <li><Link to="/projects" style={{ textDecoration: 'none' }}>Projects</Link></li>
-  //   </ul>
-  //   </nav>
-  // )
-
   render() {
     const { userIsLoggedIn, userData } = this.props;
  
