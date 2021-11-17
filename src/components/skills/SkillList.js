@@ -23,25 +23,20 @@ class SkillList extends Component {
         })
     }
 
-    
-
     componentDidMount() {
         this.getAllSkills();
     }
         
-
-    render() {
-        console.log("this stateeee", this.state.userRole === "admin")
-        
+    render() {        
         return (
             
             <div>
-                {this.state.userRole === "admin" ?
+                {this.state.userRole === "guest" ?
+                    <div></div>
+                    :
                     <div>
                         <AddSkill specificSkill={this.state} getSkill={this.getAllSkills} specificOwner={this.state}></AddSkill>
                     </div>
-                    :
-                    <div></div>
                 }
                 <p>this is skilllist</p>
                 {this.state.listOfSkills.map((skill) => {
@@ -50,8 +45,6 @@ class SkillList extends Component {
                             <Link to={`/skills/${skill._id}`}>
                                 <h3>{skill.title}</h3>   
                             </Link>
-
-                            
                         </div>
                     )
                 })}
