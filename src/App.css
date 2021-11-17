@@ -15,7 +15,7 @@ body {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  
+
   /* position: fixed;
     top: 0;
     left: 0;
@@ -33,11 +33,14 @@ li{
   margin-left: 3rem;
   margin-right: 3rem;
   list-style: none;
+  display: flex;
+  align-items: center;
+
 }
 
 
 /*FORM LOGIN + FORM SIGNUP*/
-.form-login , .form-signup{
+.form-login , .form-signup , .form-addSkill {
   background-color:white;
   border-radius: 20px;
   box-sizing: border-box;
@@ -74,7 +77,7 @@ input {
   box-sizing: border-box;
   color: black;
   font-size: 18px;
-  height: 100%;
+  /* height: 100%; */
   outline: 0;
   padding: 4px 20px 0;
   width: 100%;
@@ -88,7 +91,128 @@ input {
   width: 100%;
 }
 
-button {
+/*Buttons*/
+
+.btn-logout , .btn-login, .btn-signup, .btn-submit-skill, .btn-submit-experience{
+  background: #97D9E1;
+  border: 1px solid #97D9E1;
+  border-radius: 12px;
+  color:black;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  padding: 8px 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: 0.3s ease background;
+  width: 100%;
+}
+.btn-addSkill, .btn-addExperience, .btn-back, .btn-delete, .btn-edit-experience, .btn-contact, .btn-submit-email{
+  background: #D9AFD9;
+  border: 1px solid #97D9E1;
+  border-radius: 12px;
+  color:black;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  padding: 8px 16px;
+  margin:1rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: 0.3s ease background;
+  width: 15%;
+
+}
+
+button:hover {
+  background: #303245;
+  color: #fff;
+  transition: 0.3s ease background;
+}
+
+
+/*SKILLIST*/
+
+.SkilList{
+  margin-top: 10rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.SkilList-items, .SkilListDetails-items{
+  width:20%;
+}
+
+.SkilList-items img, .SkilListDetails-items img{
+  width:50%;
+  height: 50%;
+}
+
+.title-skilList , .title-SkilListDetails {
+  margin-top: 5rem;
+} 
+
+.SkilDetails{
+  margin-top: 10rem;
+  display: flex;
+
+}
+
+/*FORMS to add Experience and to add skill*/
+.form-addExperience, .form-addSkill {
+  margin-top: 30px;
+  background-color:white;
+  border-radius: 20px;
+  box-sizing: border-box;
+  height: 400px;
+  padding: 20px;
+  width: 720px;
+  position: absolute;
+  transform: translate(-50%,-50%);
+  top: 50%;
+  left: 50%;
+}
+
+.ExperienceDetails {
+  padding: 3rem;
+  margin-left: 5rem;
+  margin-right: 5rem;
+  float: right;
+}
+
+.ExperienceDetails img {
+  width:500px;
+  float:left;
+}
+
+.ExperienceDetails p {
+  /* margin-left: 5rem; */
+ 
+  padding-top: 5rem;
+  padding-left:2rem;
+
+}
+
+/*Form Get in contact*/
+
+.form-getContact{
+  margin-top: 30px;
+  background-color:white;
+  border-radius: 20px;
+  box-sizing: border-box;
+  height: 400px;
+  padding: 20px;
+  /* width: 720px; */
+  /* position: absolute; */
+  /* transform: translate(-50%,-50%); */
+  top: 50%;
+  left: 50%;
+  
+}
+
+.form-getContact > input{
+
   background: #97D9E1;
   border: 1px solid #97D9E1;
   border-radius: 12px;
@@ -103,8 +227,6 @@ button {
   width: 100%;
 }
 
-form button:hover {
-  background: #303245;
-  color: #fff;
-  transition: 0.3s ease background;
-}
+
+
+

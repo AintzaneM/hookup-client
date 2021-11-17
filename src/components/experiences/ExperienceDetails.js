@@ -60,11 +60,11 @@ class ExperienceDetails extends Component {
             return (
                 <div>
 
-                    <button onClick={() => this.deleteExperience(this.state._id)}>
-                        Delete experience
+                    <button className="btn-delete"onClick={() => this.deleteExperience(this.state._id)}>
+                        <strong>Delete experience</strong>
                     </button>
 
-                    <button onClick={this.handleClickButton}>Edit Experience</button>
+                    <button className="btn-edit-experience"onClick={this.handleClickButton}><strong>Edit Experience</strong></button>
                 </div>
             );
         }
@@ -77,10 +77,16 @@ class ExperienceDetails extends Component {
     render() {
         return (
             <div>
-                <p>experience details</p>
+
+                <Link to={`/skills/${this.props.match.params.id}`}>
+                    <button className="btn-back"><strong>Go back to experiences</strong></button>
+                </Link>
+                
+                <h1>{this.state.namePosition}</h1>
+                <ContactWithExperience/>
+                <div className="ExperienceDetails">
                 <img src={this.state.imageUrl} alt=""/>
-                <p>{this.state.namePosition}</p>
-                <p>{this.state.description}</p>
+                <p className="test-ExperienceDetails">{this.state.description}</p>
 
                 {this.state.clickButtonForm === true && (this.props.user && (this.state.owner === this.props.user._id)) ?
                     <div>
@@ -90,13 +96,13 @@ class ExperienceDetails extends Component {
                     :
                     <div></div>
                 }
-                <ContactWithExperience/>
+                
              
                <div> {this.ownershipCheck(this.state)} </div>
 
-                <Link to={`/skills/${this.props.match.params.id}`}>
-                    <button>Back to experiences</button>
-                </Link>                
+               </div>
+
+                              
             </div>
         )
     }

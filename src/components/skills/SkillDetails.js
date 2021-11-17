@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import AddExperience from '../experiences/AddExperience';
-import "./SkillDetails.css"
 
 class SkillsDetails extends Component {
    state = {}
@@ -25,26 +24,27 @@ class SkillsDetails extends Component {
 
     render() {
         return (
-            <div className="SkillDetails">
-                <h1>Discover professional experiences related to {this.state.title}</h1>
-                {this.state.experiencesList && this.state.experiencesList.length > 0 && <p>Experiences</p>}
-                {this.state.experiencesList && this.state.experiencesList.map((experience, index) => {
-                    return (
-                        <div key={index}>
-                            {<img src={experience.imageUrl} alt=""/>}
-                            <Link to={`/skills/${this.state._id}/experiences/${experience._id}`}>
-                                {experience.namePosition}
-                            </Link>
-                        </div>
-                    )
-                })}
-                <div>
-                    <AddExperience specificSkill={this.state} getSkill={this.getSpecificSkill} specificOwner={this.state}></AddExperience>
-                    <Link to={`/skills`}>
-                        <button className="btn-back"><strong>Go back to the skills</strong></button>
-                    </Link>
+            <div>
+                <Link to={`/skills`}>
+                    <button className="btn-back"><strong>Go back to the skills</strong></button>
+                </Link>
+                <h1 className="title-SkilListDetails">Discover professional experiences related to {this.state.title}</h1>
+                <AddExperience specificSkill={this.state} getSkill={this.getSpecificSkill} specificOwner={this.state}></AddExperience>
+                <div className="SkilDetails">
+                    {this.state.experiencesList && this.state.experiencesList.length > 0}
+                    {this.state.experiencesList && this.state.experiencesList.map((experience, index) => {
+                        return (
+                            <div className="SkilListDetails-items" key={index}>
+                                {<img src={experience.imageUrl} alt="" />} <br />
+                                <Link to={`/skills/${this.state._id}/experiences/${experience._id}`}>
+                                    {experience.namePosition}
+                                </Link>
+                            </div>
+                        )
+                    })}
+                    <div>
+                    </div>
                 </div>
-                
             </div>
         )
     }
