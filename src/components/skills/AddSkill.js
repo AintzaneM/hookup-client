@@ -29,7 +29,7 @@ class AddSkill extends Component {
         if(this.state.clickButtonForm) {
             return (
                 <div className="form-addSkill">
-                    <form onSubmit = {this.handleFormSubmit}>
+                    <form className="form-addSkill" onSubmit = {this.handleFormSubmit}>
                     <div className="input-container-addSkill">
                         <label>
                             <input 
@@ -57,7 +57,7 @@ class AddSkill extends Component {
                                 onChange={(event) => this.handleFileUpload(event)}
                             />
                         </label>
-                        <button>Submit your the new skill!</button>
+                        <button className="btn-submit-skill"><strong>Submit the new skill!</strong></button>
                         </div>
                     </form>
                 </div>
@@ -110,8 +110,8 @@ class AddSkill extends Component {
         return (
 
             <div>
-            <button onClick={() => this.toggleForm()}>
-                Add the new skill!</button>
+            <button className="btn-addSkill" onClick={() => this.toggleForm()}>
+                <strong>Add a new skill!</strong></button>
             {this.showForm()}
             
             </div>

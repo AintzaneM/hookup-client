@@ -38,16 +38,17 @@ class SkillList extends Component {
                         <AddSkill specificSkill={this.state} getSkill={this.getAllSkills} specificOwner={this.state}></AddSkill>
                     </div>
                 }
-                <h1 className="title-skilList">Choose the skill you're interested in and explore the different experiences</h1>
+                <h1 className="title-skilList">Choose the skill that interests you the most <br/> and explore the different experiences</h1>
                 <div className="SkilList">
                     {this.state.listOfSkills.map((skill) => {
                     return (
                         <div className="SkilList-items" key={skill._id}>
                                 {<img src={skill.imageUrl} alt=""/>}
                             <Link className="Link" to={`/skills/${skill._id}`}>
-                                
                                 <h3>{skill.title}</h3>   
                             </Link>
+
+                            <p>{skill.description}</p>
                         </div>
                     )
                 

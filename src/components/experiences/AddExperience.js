@@ -32,7 +32,7 @@ class AddExperience extends Component {
                             <input 
                                 placeholder="Position Name"
                                 type= "text"
-                                name= "namePosition"
+                                name= "namePosition" 
                                 value = {this.state.namePosition}
                                 onChange= {(event) => this.handleChange(event)}
                                 />
@@ -40,7 +40,7 @@ class AddExperience extends Component {
                         <label>
                             <input 
                                 placeholder="Description"
-                                type="text"
+                                type="textarea"
                                 name="description"
                                 value={this.state.description}
                                 onChange={(event) => this.handleChange(event)}
@@ -55,7 +55,7 @@ class AddExperience extends Component {
                                 onChange={(event) => this.handleFileUpload(event)}
                             />
                         </label>
-                        <button>Submit your experience!</button>
+                        <button className="btn-submit-experience"><strong>Submit your experience!</strong></button>
                         </div>
                     </form>
                 </div>
@@ -110,8 +110,8 @@ class AddExperience extends Component {
         return (
 
             <div>
-            <button onClick={() => this.toggleForm()}>
-                Add your experience!</button>
+            <button className="btn-addExperience" onClick={() => this.toggleForm()}>
+               <strong> Add your experience! </strong> </button>
             {this.showForm()}
             
             </div>

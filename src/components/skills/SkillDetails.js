@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import AddExperience from '../experiences/AddExperience';
-
+import "./SkillDetails.css"
 
 class SkillsDetails extends Component {
    state = {}
@@ -25,9 +25,8 @@ class SkillsDetails extends Component {
 
     render() {
         return (
-            <div>
-                <p><strong>{this.state.title}</strong></p>
-                <p>We are going to see the Experiences LIST</p>                
+            <div className="SkillDetails">
+                <h1>Discover professional experiences related to {this.state.title}</h1>
                 {this.state.experiencesList && this.state.experiencesList.length > 0 && <p>Experiences</p>}
                 {this.state.experiencesList && this.state.experiencesList.map((experience, index) => {
                     return (
@@ -35,7 +34,6 @@ class SkillsDetails extends Component {
                             {<img src={experience.imageUrl} alt=""/>}
                             <Link to={`/skills/${this.state._id}/experiences/${experience._id}`}>
                                 {experience.namePosition}
-                                {console.log("experience owner in project details", experience.owner)}
                             </Link>
                         </div>
                     )
@@ -43,7 +41,7 @@ class SkillsDetails extends Component {
                 <div>
                     <AddExperience specificSkill={this.state} getSkill={this.getSpecificSkill} specificOwner={this.state}></AddExperience>
                     <Link to={`/skills`}>
-                        <button>Back to skills</button>
+                        <button className="btn-back"><strong>Go back to the skills</strong></button>
                     </Link>
                 </div>
                 
