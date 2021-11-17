@@ -9,7 +9,8 @@ class SkillList extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            listOfSkills: []
+            listOfSkills: [],
+            userRole: "guest",
         }
     }
 
@@ -30,10 +31,18 @@ class SkillList extends Component {
         
 
     render() {
+        console.log("this stateeee", this.state.userRole === "admin")
+        
         return (
+            
             <div>
-                <AddSkill specificSkill={this.state} getSkill={this.getAllSkills} specificOwner={this.state}></AddSkill>
-
+                {this.state.userRole === "admin" ?
+                    <div>
+                        <AddSkill specificSkill={this.state} getSkill={this.getAllSkills} specificOwner={this.state}></AddSkill>
+                    </div>
+                    :
+                    <div></div>
+                }
                 <p>this is skilllist</p>
                 {this.state.listOfSkills.map((skill) => {
                     return (
