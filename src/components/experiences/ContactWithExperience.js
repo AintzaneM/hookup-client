@@ -55,14 +55,14 @@ class ContactWithExperience extends Component {
             <div>
 
                 <form>
-                    <div class="emailBox">
+                    <div className="emailBox">
                         <label for="emailAddress">Your e-mail address</label>
                         <input id="emailAddress" type="email" size="64" maxLength="64" required
                                 placeholder="youremail@gmail.com" 
                                 title="Please provide your e-mail address"/>
                     </div>
 
-                <div class="messageBox">
+                <div className="messageBox">
                 <label for="message">Email</label>
                 <textarea id="message" cols="80" rows="8" required
                             placeholder= "Get in contact and share your concerns about this job experience "></textarea>
