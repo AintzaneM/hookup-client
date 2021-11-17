@@ -23,8 +23,9 @@ class AddExperience extends Component {
     showForm = () => {
         if(this.state.clickButtonForm) {
             return (
-                <div>
+                <div className="form-addExperience">
                     <form onSubmit = {this.handleFormSubmit}>
+                    <div className="input-container-addExperience">
                         <label>
                             <input 
                                 placeholder="Position Name"
@@ -44,6 +45,7 @@ class AddExperience extends Component {
                             />
                         </label>
                         <button>Submit your experience!</button>
+                        </div>
                     </form>
                 </div>
             )

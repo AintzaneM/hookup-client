@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import EditExperience from './EditExperience';
 import { Link } from 'react-router-dom';
+import ContactWithExperience from './ContactWithExperience'
 
 
 class ExperienceDetails extends Component {
@@ -27,6 +28,7 @@ class ExperienceDetails extends Component {
                     skill: theExperience.skill,
                     owner: theExperience.owner
                 });
+            
             })
             .catch((err) => {
                 console.log(err);
@@ -63,6 +65,8 @@ class ExperienceDetails extends Component {
 
                     <button onClick={this.handleClickButton}>Edit Experience</button>
 
+                    <button onClick={this.handleClickButton}>Contact with owner</button>
+
                 </div>
             );
         }
@@ -75,7 +79,6 @@ class ExperienceDetails extends Component {
     render() {
         return (
             <div>
-                
                 <p>experience details</p>
                 <p>{this.state.namePosition}</p>
                 <p>{this.state.description}</p>
@@ -90,14 +93,14 @@ class ExperienceDetails extends Component {
                     :
                     <div></div>
                 }
-                <div> {this.ownershipCheck(this.state)} </div>
+
+                <ContactWithExperience/>
+             
+               <div> {this.ownershipCheck(this.state)} </div>
 
                 <Link to={`/skills/${this.props.match.params.id}`}>
                     <button>Back to experiences</button>
-                </Link>
-
-
-                
+                </Link>                
             </div>
         )
     }
