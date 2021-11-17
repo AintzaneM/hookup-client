@@ -11,6 +11,7 @@ class ExperienceDetails extends Component {
         this.state = {
             namePosition: "",
             description: "",
+            imageUrl:"",
             clickButtonForm: false,
             owner: this.props.user_id,
         }
@@ -25,6 +26,7 @@ class ExperienceDetails extends Component {
                 this.setState({
                     namePosition: theExperience.namePosition,
                     description: theExperience.description,
+                    imageUrl: theExperience.imageUrl,
                     skill: theExperience.skill,
                     owner: theExperience.owner
                 });
@@ -77,20 +79,18 @@ class ExperienceDetails extends Component {
         return (
             <div>
                 <p>experience details</p>
+                <img src={this.state.imageUrl}/>
                 <p>{this.state.namePosition}</p>
                 <p>{this.state.description}</p>
-                
-                {this.state.clickButtonForm === true && (this.props.user && (this.state.owner === this.props.user._id)) ?
 
+                {this.state.clickButtonForm === true && (this.props.user && (this.state.owner === this.props.user._id)) ?
                     <div>
-                        
                         <EditExperience handleClickButton={() => this.handleClickButton()} theExperience={this.state} getData={() => this.getSpecificExperience()} {...this.props}
                         />
                     </div>
                     :
                     <div></div>
                 }
-
                 <ContactWithExperience/>
              
                <div> {this.ownershipCheck(this.state)} </div>

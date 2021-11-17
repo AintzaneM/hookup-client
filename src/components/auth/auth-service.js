@@ -8,6 +8,8 @@ class AuthService {
     });
   }
 
+  
+
   signup = (email, password) => {
     return this.service.post('/signup', { email, password }).then(response => response.data);
   };
@@ -23,6 +25,15 @@ class AuthService {
   logout = () => {
     return this.service.get('/logout', {}).then(response => response.data);
   };
+
+  handleUpload = file => {
+    return this.service
+      .post("/upload", file)
+      .then((res) => res.data)
+      .catch((error) => console.log(error));
+  };
+
+  
 }
  
 // class AuthService is used to organize and group the methods.
