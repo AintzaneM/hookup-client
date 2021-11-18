@@ -23,6 +23,7 @@ class SkillList extends Component {
         })
     }
 
+    
     componentDidMount() {
         this.getAllSkills();
     }
