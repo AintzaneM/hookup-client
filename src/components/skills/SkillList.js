@@ -31,7 +31,7 @@ class SkillList extends Component {
         return (
             
             <div>
-                {this.state.userRole !== "admin" ?
+                {this.state.userRole !== "admin"?
                     <div></div>
                     :
                     <div>
