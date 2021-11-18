@@ -11,6 +11,7 @@ class AddSkill extends Component {
             description: "",
             imageUrl:"",
             experiencesList:[],
+            isUploading: false,
             clickButtonForm: false,
         }
     }
@@ -72,7 +73,7 @@ class AddSkill extends Component {
 
     handleFileUpload = (event) => {
         // console.log("The file to be uploaded is: ", event.target.files[0]);
-     
+        this.setState({isUploading: true});
         const uploadData = new FormData();
      
         uploadData.append('imageUrl', event.target.files[0]);
@@ -80,8 +81,8 @@ class AddSkill extends Component {
         authService
           .handleUpload(uploadData)
           .then(response => {
-            console.log("response is: ", response);
-            this.setState({ imageUrl: response.secure_url });
+            // console.log("response is: ", response);
+            this.setState({ imageUrl: response.secure_url , isUploading:false});
           })
           .catch(err => console.log('Error while uploading the file: ', err));
     };
@@ -89,6 +90,13 @@ class AddSkill extends Component {
 
     handleFormSubmit = (event) => {
         event.preventDefault();
+        if(this.state.isUploading) {
+            setTimeout(() => {
+                // console.log("callback",)
+                // console.log(event)
+                this.handleFormSubmit(event);
+            },100);
+        }else{
         const title = this.state.title;
         const description = this.state.description;
         const imageUrl = this.state.imageUrl;
@@ -101,6 +109,7 @@ class AddSkill extends Component {
             this.toggleForm()
         })
         .catch((err)=>console.log(err))
+        }
     }
     render(){
         return (

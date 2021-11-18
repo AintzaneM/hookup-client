@@ -29,7 +29,6 @@ class SkillList extends Component {
     }
 
     render() {
-        console.log("!!!!!", this.props.roleUser)
         return (
 
             <div>

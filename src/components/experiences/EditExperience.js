@@ -11,6 +11,7 @@ class EditExperience extends Component {
             skill: this.props.theExperience.skill,
             imageUrl: this.props.theExperience.imageUrl,
             owner: this.props.theExperience.owner,
+            isUploading: false,
         }
     }
 
@@ -21,20 +22,27 @@ class EditExperience extends Component {
 
     handleFormSubmit = (event) => {
         event.preventDefault();
+        if (this.state.isUploading) {
+            setTimeout(() => {
+                // console.log("callback",)
+                // console.log(event)
+                this.handleFormSubmit(event);
+            }, 100);
+        } else {
+            const { params } = this.props.match;
+            const namePosition = this.state.namePosition;
+            const description = this.state.description;
+            const imageUrl = this.state.imageUrl;
+            const skill = this.state.skill;
+            const owner = this.state.owner;
 
-        const { params } = this.props.match;
-        const namePosition = this.state.namePosition;
-        const description = this.state.description;
-        const imageUrl = this.state.imageUrl;
-        const skill = this.state.skill;
-        const owner = this.state.owner;
-
-        axios.put(`${process.env.REACT_APP_API_URL}/skills/${params.id}/experiences/${params.experienceId}`, { namePosition, description, imageUrl, skill, owner }, { withCredentials: true })
-            .then(() => {
-                this.props.getData();
-                this.props.handleClickButton();
-            })
-            .catch((err) => console.log(err))
+            axios.put(`${process.env.REACT_APP_API_URL}/skills/${params.id}/experiences/${params.experienceId}`, { namePosition, description, imageUrl, skill, owner }, { withCredentials: true })
+                .then(() => {
+                    this.props.getData();
+                    this.props.handleClickButton();
+                })
+                .catch((err) => console.log(err))
+        }
     }
 
     handleFileUpload = (event) => {
@@ -45,7 +53,7 @@ class EditExperience extends Component {
             .handleUpload(uploadData)
             .then(response => {
                 console.log("response is: ", response);
-                this.setState({ imageUrl: response.secure_url });
+                this.setState({ imageUrl: response.secure_url, isUploading: false });
             })
             .catch(err => console.log('Error while uploading the file: ', err));
     };
