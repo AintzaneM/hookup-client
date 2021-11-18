@@ -8,6 +8,35 @@ body {
   text-align: center;
 }
 
+/*HOMEPAGE*/
+
+.Homepage{
+  display: flex;
+  flex-direction: row;
+}
+
+.Homepage img {
+  padding-top: 5%;
+  height: 500px;
+  float: left;
+  margin-left: 10%;
+  margin-right: 5%
+
+}
+
+.homepage-question{
+  font-size: 70px;
+}
+
+.homepage-text {
+  /* float: right; */
+  /* margin-left: 5%; */
+  margin-right: 10%;
+  padding-top: 5%;
+  font-size: 40px;
+
+}
+
 /*NAVBAR*/
 .nav-style{
   background-color: white;
@@ -15,12 +44,6 @@ body {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-
-  /* position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 80px; */
 
 }
 
