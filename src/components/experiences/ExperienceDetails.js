@@ -78,7 +78,7 @@ class ExperienceDetails extends Component {
                 <Link to={`/skills/${this.props.match.params.id}`}>
                     <button className="btn-back"><strong>Go back to experiences</strong></button>
                 </Link>
-                <h1>{this.state.namePosition}</h1>
+                <strong><p className="ExperienceDetails-namePosition">{this.state.namePosition}</p></strong>
                 <ContactWithExperience />
                 <div className="ExperienceDetails">
                     <img src={this.state.imageUrl} alt="" />
@@ -97,7 +97,6 @@ class ExperienceDetails extends Component {
         )
     }
 }
-
 
 
 export default ExperienceDetails;

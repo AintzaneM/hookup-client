@@ -45,7 +45,6 @@ class EditExperience extends Component {
             .handleUpload(uploadData)
             .then(response => {
                 console.log("response is: ", response);
-                // after the console.log we can see that response carries 'secure_url' which we can use to update the state
                 this.setState({ imageUrl: response.secure_url });
             })
             .catch(err => console.log('Error while uploading the file: ', err));

@@ -9,7 +9,7 @@ import Signup from './components/auth/Signup';
 import authService from './components/auth/auth-service';
 import SkillsDetails from './components/skills/SkillDetails';
 import ExperienceDetails from './components/experiences/ExperienceDetails';
-import ProtectedRoute from './components/auth/ProtectedRoute';
+
 
 class App extends React.Component {
   state = {
@@ -64,25 +64,15 @@ class App extends React.Component {
             <Homepage />
           </Route>
           <Route exact path="/signup" render={props => <Signup {...props} getUser={this.getTheUser} />} />
-          
           <Route exact path="/login" render={props => <Login {...props} getUser={this.getTheUser} />} />
-
-          <Route user={this.state.user} userIsLoggedIn={this.state.isLoggedIn} exact path="/skills" render= {props => <SkillList {...props} roleUser= {this.state.user.role}/>}/>
-          <Route user={this.state.user} userIsLoggedIn={this.state.isLoggedIn} exact path="/skills/:id" component={SkillsDetails}/>
-          <Route exact path="/skills/:id/experiences/:experienceId" render={props=> <ExperienceDetails {...props} user={this.state.user}/>}/>
-
+          <Route user={this.state.user} userIsLoggedIn={this.state.isLoggedIn} exact path="/skills" render={props => <SkillList {...props} roleUser={this.state.user.role} />} />
+          <Route user={this.state.user} userIsLoggedIn={this.state.isLoggedIn} exact path="/skills/:id" component={SkillsDetails} />
+          <Route exact path="/skills/:id/experiences/:experienceId" render={props => <ExperienceDetails {...props} user={this.state.user} />} />
         </Switch>
-
       </div>
     );
 
   }
-
-
-
-
-
-
 
 }
 

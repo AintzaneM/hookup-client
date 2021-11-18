@@ -29,7 +29,7 @@ class AddSkill extends Component {
         if(this.state.clickButtonForm) {
             return (
                 <div className="form-addSkill">
-                    <form className="form-addSkill" onSubmit = {this.handleFormSubmit}>
+                    <form onSubmit = {this.handleFormSubmit}>
                     <div className="input-container-addSkill">
                         <label>
                             <input 
@@ -75,15 +75,12 @@ class AddSkill extends Component {
      
         const uploadData = new FormData();
      
-        // imageUrl => this name has to be the same as in the model since we pass
-        // req.body to .create() method when creating a new thing in '/api/things/create' POST route
         uploadData.append('imageUrl', event.target.files[0]);
      
         authService
           .handleUpload(uploadData)
           .then(response => {
             console.log("response is: ", response);
-            // after the console.log we can see that response carries 'secure_url' which we can use to update the state
             this.setState({ imageUrl: response.secure_url });
           })
           .catch(err => console.log('Error while uploading the file: ', err));
@@ -105,7 +102,6 @@ class AddSkill extends Component {
         })
         .catch((err)=>console.log(err))
     }
-
     render(){
         return (
 
@@ -113,7 +109,6 @@ class AddSkill extends Component {
             <button className="btn-addSkill" onClick={() => this.toggleForm()}>
                 <strong>Add a new skill!</strong></button>
             {this.showForm()}
-            
             </div>
         )
     }

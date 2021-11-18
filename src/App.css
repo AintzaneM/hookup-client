@@ -1,8 +1,6 @@
 .App {
   text-align: center;
-
 }
-
 
 body {
   text-align: center;
@@ -21,7 +19,6 @@ body {
   float: left;
   margin-left: 10%;
   margin-right: 5%
-
 }
 
 .homepage-question{
@@ -29,12 +26,9 @@ body {
 }
 
 .homepage-text {
-  /* float: right; */
-  /* margin-left: 5%; */
   margin-right: 10%;
   padding-top: 5%;
   font-size: 40px;
-
 }
 
 /*NAVBAR*/
@@ -44,7 +38,7 @@ body {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-
+  min-width: 800px;
 }
 
 ul{
@@ -58,7 +52,6 @@ li{
   list-style: none;
   display: flex;
   align-items: center;
-
 }
 
 
@@ -86,31 +79,36 @@ li{
 
 /*FORM EDIT EXPERIENCE*/
 .form-editExperience {
-  background-color: white;
-  border-radius: 20px;
-  box-sizing: border-box;
-  height: 320px;
-  padding: 20px;
-  width: 600px;
-  position: absolute;
-  transform: translate(-50%,-50%);
-  top: 70%;
-  left: 80%;
-}
-
-/*FORMS ADD EXPERIENCE & ADD SKILL*/
-.form-addExperience, .form-addSkill , .form-getContact {
   margin-top: 30px;
+  margin-left: 35rem;
   background-color:white;
   border-radius: 20px;
   box-sizing: border-box;
-  height: 350px;
   padding: 20px;
-  width: 720px;
-  position: absolute;
-  transform: translate(-50%,-50%);
-  top: 50%;
-  left: 50%;
+  width: 720px;  
+}
+
+/*FORMS ADD EXPERIENCE & ADD SKILL*/
+.form-addSkill, .form-addExperience  {
+  margin-top: 30px;
+  margin-left: 35rem;
+  background-color:white;
+  border-radius: 20px;
+  box-sizing: border-box;
+  padding: 20px;
+  width: 720px;  
+}
+
+
+.form-getContact{
+margin-top: 30px;
+margin-left: 35rem;
+background-color: white;
+border-radius: 20px;
+box-sizing: border-box;
+padding: 20px;
+width: 720px;
+right: -16%;
 }
 
 /*FORM INPUTS*/
@@ -164,7 +162,7 @@ li{
   transition: 0.3s ease background;
   width: 100%;
 }
-.btn-addSkill, .btn-addExperience, .btn-back, .btn-contact{
+.btn-contact{
   background: #8e2dfd;
   border-radius: 12px;
   color: white;
@@ -176,13 +174,28 @@ li{
   text-decoration: none;
   text-transform: uppercase;
   transition: 0.3s ease background;
-  width: 15%;
+  min-width: 10%;
 }
 
-.btn-delete, .btn-edit-experience , .btn-submit-email{
-  background:#8e2dfd;
+.btn-back {
+  background: #8e2dfd;
   border-radius: 12px;
-  color:black;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 8px 16px;
+  margin:1rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: 0.3s ease background;
+  min-width: 10%;
+  float: left;
+}
+
+.btn-addSkill,  .btn-addExperience {
+  background: #8e2dfd;
+  border-radius: 12px;
+  color: white;
   cursor: pointer;
   display: inline-block;
   font-size: 14px;
@@ -191,7 +204,21 @@ li{
   text-decoration: none;
   text-transform: uppercase;
   transition: 0.3s ease background;
-  width: 15%;
+ }
+
+.btn-delete, .btn-edit-experience , .btn-submit-email{
+  background:#8e2dfd;
+  border-radius: 12px;
+  color: white;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  padding: 8px 16px;
+  margin:1rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: 0.3s ease background;
+  min-width: 20%;
 }
 
 button:hover {
@@ -202,44 +229,67 @@ button:hover {
 
 /*SKILLIST & SKILLDETAILS*/
 
-.SkilList{
+.SkilList, .SkilDetails{
   margin-top: 10rem;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 .SkilList-items img {
-  width:50%;
+  margin-bottom: 1rem;
+  margin: 0.5rem;
+  padding: 45px;
+  max-width: 40%;
 }
 
 .SkilList-items {
-  width: 20%;
-}
-
-.SkilDetails-container {
-  display: flex;
+  max-width: 20%;
+  max-height: 30%;;
+  border: 5px solid #8e2dfd;
+  border-radius: 50px;
+  margin: 1rem;
   flex-direction: column;
+  justify-content: first baseline;
 }
 
-.SkilDetails{
-  margin-top: 10rem;
-  display: flex;
-}
-
-.SkilListDetails-items{
-  width:30%;
+.SkilListDetails-items {
+  min-width: 30%;
+  min-height: 30%;;
+  border: 5px solid #8e2dfd;
+  border-radius: 50px;
+  margin: 1rem;
+  flex-direction: column;
+  justify-content: first baseline;
 }
 
 .SkilListDetails-items img{
-  width:70%;
-  height: 90%;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
+  margin: 0.5rem;
+  border-radius:  50px;
+  padding: 45px;
+  max-width: 450px;
+  max-height: auto;
+  background-size: cover
 }
 
-.title-skilList , .title-SkilListDetails {
-  margin-top: 5rem;
-} 
+.title-skilList  {
+  margin-top: 2rem;
+  font-size: 50px;
+}
+
+.SkilList-text {
+  padding: 20px;
+  font-size: 20px;
+}
+
+.title-SkilListDetails {
+  font-size: 50px;
+}
+
+.SkillDetails-namePosition {
+  font-size: 20px;
+}
 
 /*EXPERIENCE DETAILS*/
 
@@ -254,19 +304,15 @@ button:hover {
   width:500px;
   float:left;
   margin-right: 5%;
+  border-radius:  50px;
 }
 
-.ExperienceDetails p button {
-
-  padding-top: 5rem;
-  padding-left:2rem;
-  float:right;
+.ExperienceDetails-namePosition {
+  font-size: 50px;
+  min-width: 800px;
 }
 
-
-
-
-
-
-
-
+.test-ExperienceDetails {
+  margin-top: 4rem;
+  font-size: 20px;
+}
