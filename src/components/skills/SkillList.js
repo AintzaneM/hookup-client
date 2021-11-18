@@ -10,7 +10,7 @@ class SkillList extends Component {
         super(props)
         this.state = {
             listOfSkills: [],
-            userRole: "admin",
+            // userRole:this.props.user.role
         }
     }
 
@@ -28,17 +28,15 @@ class SkillList extends Component {
         this.getAllSkills();
     }
         
-    render() {        
+    render() {   
+        console.log("!!!!!",this.props.roleUser)     
         return (
             
             <div>
-                {this.state.userRole !== "admin"?
-                    <div></div>
-                    :
+                {this.props.roleUser === "admin" &&  
                     <div>
                         <AddSkill specificSkill={this.state} getSkill={this.getAllSkills} specificOwner={this.state}></AddSkill>
-                    </div>
-                }
+                    </div> }
                 <h1 className="title-skilList">Choose the skill that interests you the most <br/> and explore the different experiences</h1>
                 <div className="SkilList">
                     {this.state.listOfSkills.map((skill) => {

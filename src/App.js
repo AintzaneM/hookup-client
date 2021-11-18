@@ -67,7 +67,7 @@ class App extends React.Component {
           
           <Route exact path="/login" render={props => <Login {...props} getUser={this.getTheUser} />} />
 
-          <ProtectedRoute user={this.state.user} userIsLoggedIn={this.state.isLoggedIn} exact path="/skills" component= {SkillList}/>
+          <Route user={this.state.user} userIsLoggedIn={this.state.isLoggedIn} exact path="/skills" render= {props => <SkillList {...props} roleUser= {this.state.user.role}/>}/>
           <Route user={this.state.user} userIsLoggedIn={this.state.isLoggedIn} exact path="/skills/:id" component={SkillsDetails}/>
           <Route exact path="/skills/:id/experiences/:experienceId" render={props=> <ExperienceDetails {...props} user={this.state.user}/>}/>
 
