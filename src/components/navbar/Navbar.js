@@ -30,7 +30,7 @@ class Navbar extends React.Component {
             </li>
             <li>
               <Link to="/">
-                <button className="btn-logout" onClick={() => this.logoutUser()}>Logout</button>
+                <button className="btn-logout" onClick={() => this.logoutUser()}><strong>Logout</strong></button>
               </Link>
             </li>
           </ul>

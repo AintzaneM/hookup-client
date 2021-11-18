@@ -77,7 +77,7 @@ li{
 }
 
 .title-login , .title-signup  {
-  color: #97D9E1;
+  color: #8e2dfd;
   font-family: sans-serif;
   font-size: 36px;
   font-weight: 600;
@@ -115,7 +115,7 @@ li{
 
 /*FORM INPUTS*/
 .form-addExperience input , .form-addSkill input, .form-login input, .form-signup input, .form-getContact input {
-  background-color:#97D9E1;
+  background-color:#cdbfd6;
   border-radius: 12px;
   border: 0;
   box-sizing: border-box;
@@ -130,7 +130,7 @@ li{
 }
 
 .form-editExperience input {
-  background-color:#97D9E1;
+  background-color: #cdbfd6;
   border-radius: 12px;
   border: 0;
   box-sizing: border-box;
@@ -152,10 +152,9 @@ li{
 /*BUTTONS*/
 
 .btn-logout , .btn-login, .btn-signup, .btn-submit-skill, .btn-submit-experience, .btn-submit-edition{
-  background: #97D9E1;
-  border: 1px solid #97D9E1;
+  background: #8e2dfd;
   border-radius: 12px;
-  color:black;
+  color:white;
   cursor: pointer;
   display: inline-block;
   font-size: 14px;
@@ -166,10 +165,9 @@ li{
   width: 100%;
 }
 .btn-addSkill, .btn-addExperience, .btn-back, .btn-contact{
-  background: #D9AFD9;
-  border: 1px solid #97D9E1;
+  background: #8e2dfd;
   border-radius: 12px;
-  color:black;
+  color: white;
   cursor: pointer;
   display: inline-block;
   font-size: 14px;
@@ -182,8 +180,7 @@ li{
 }
 
 .btn-delete, .btn-edit-experience , .btn-submit-email{
-  background: #D9AFD9;
-  border: 1px solid #97D9E1;
+  background:#8e2dfd;
   border-radius: 12px;
   color:black;
   cursor: pointer;
