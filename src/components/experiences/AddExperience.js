@@ -14,7 +14,7 @@ class AddExperience extends Component {
         }
     }
 
-    
+
     toggleForm =() =>{
         if(!this.state.clickButtonForm) {
             this.setState({clickButtonForm : true});
@@ -42,7 +42,7 @@ class AddExperience extends Component {
                             <input 
                                 placeholder="Description"
                                 type="textarea"
-                                name="description"
+                                name="description" cols="50" rows="4"
                                 value={this.state.description}
                                 onChange={(event) => this.handleChange(event)}
                             />

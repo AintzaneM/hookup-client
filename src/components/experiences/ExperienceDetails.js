@@ -11,7 +11,7 @@ class ExperienceDetails extends Component {
         this.state = {
             namePosition: "",
             description: "",
-            imageUrl:"",
+            imageUrl: "",
             clickButtonForm: false,
             owner: this.props.user_id,
         }
@@ -29,7 +29,7 @@ class ExperienceDetails extends Component {
                     skill: theExperience.skill,
                     owner: theExperience.owner
                 });
-            
+
             })
             .catch((err) => {
                 console.log(err);
@@ -59,12 +59,10 @@ class ExperienceDetails extends Component {
         if (currentUserIsOwner) {
             return (
                 <div>
-
-                    <button className="btn-delete"onClick={() => this.deleteExperience(this.state._id)}>
+                    <button className="btn-delete" onClick={() => this.deleteExperience(this.state._id)}>
                         <strong>Delete experience</strong>
                     </button>
-
-                    <button className="btn-edit-experience"onClick={this.handleClickButton}><strong>Edit Experience</strong></button>
+                    <button className="btn-edit-experience" onClick={this.handleClickButton}><strong>Edit Experience</strong></button>
                 </div>
             );
         }
@@ -77,32 +75,24 @@ class ExperienceDetails extends Component {
     render() {
         return (
             <div>
-
                 <Link to={`/skills/${this.props.match.params.id}`}>
                     <button className="btn-back"><strong>Go back to experiences</strong></button>
                 </Link>
-                
                 <h1>{this.state.namePosition}</h1>
-                <ContactWithExperience/>
+                <ContactWithExperience />
                 <div className="ExperienceDetails">
-                <img src={this.state.imageUrl} alt=""/>
-                <p className="test-ExperienceDetails">{this.state.description}</p>
-
-                {this.state.clickButtonForm === true && (this.props.user && (this.state.owner === this.props.user._id)) ?
-                    <div>
-                        <EditExperience handleClickButton={() => this.handleClickButton()} theExperience={this.state} getData={() => this.getSpecificExperience()} {...this.props}
-                        />
-                    </div>
-                    :
-                    <div></div>
-                }
-                
-             
-               <div> {this.ownershipCheck(this.state)} </div>
-
-               </div>
-
-                              
+                    <img src={this.state.imageUrl} alt="" />
+                    <p className="test-ExperienceDetails">{this.state.description}</p>
+                    {this.state.clickButtonForm === true && (this.props.user && (this.state.owner === this.props.user._id)) ?
+                        <div>
+                            <EditExperience handleClickButton={() => this.handleClickButton()} theExperience={this.state} getData={() => this.getSpecificExperience()} {...this.props}
+                            />
+                        </div>
+                        :
+                        <div></div>
+                    }
+                    <div> {this.ownershipCheck(this.state)} </div>
+                </div>
             </div>
         )
     }

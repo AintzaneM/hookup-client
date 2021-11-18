@@ -29,6 +29,7 @@ class SkillsDetails extends Component {
                     <button className="btn-back"><strong>Go back to the skills</strong></button>
                 </Link>
                 <h1 className="title-SkilListDetails">Discover professional experiences related to {this.state.title}</h1>
+               
                 <AddExperience specificSkill={this.state} getSkill={this.getSpecificSkill} specificOwner={this.state}></AddExperience>
                 <div className="SkilDetails">
                     {this.state.experiencesList && this.state.experiencesList.length > 0}
@@ -45,6 +46,7 @@ class SkillsDetails extends Component {
                     <div>
                     </div>
                 </div>
+                
             </div>
         )
     }

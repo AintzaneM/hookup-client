@@ -43,8 +43,8 @@ class AddSkill extends Component {
                         <label>
                             <input 
                                 placeholder="Description"
-                                type="text"
-                                name="description"
+                                type="textarea"
+                                name="description" cols="50" rows="4"
                                 value={this.state.description}
                                 onChange={(event) => this.handleChange(event)}
                             />

@@ -40,7 +40,7 @@ li{
 
 
 /*FORM LOGIN + FORM SIGNUP*/
-.form-login , .form-signup , .form-addSkill {
+.form-login , .form-signup  {
   background-color:white;
   border-radius: 20px;
   box-sizing: border-box;
@@ -61,23 +61,44 @@ li{
   margin-top: 30px;
 }
 
-.form {
-  background-color: #15172b;
+/*FORM EDIT EXPERIENCE*/
+.form-editExperience {
+  background-color: white;
   border-radius: 20px;
   box-sizing: border-box;
-  height: 500px;
+  height: 320px;
   padding: 20px;
-  width: 320px;
+  width: 600px;
+  position: absolute;
+  transform: translate(-50%,-50%);
+  top: 70%;
+  left: 80%;
 }
 
-input {
+/*FORMS ADD EXPERIENCE & ADD SKILL*/
+.form-addExperience, .form-addSkill , .form-getContact {
+  margin-top: 30px;
+  background-color:white;
+  border-radius: 20px;
+  box-sizing: border-box;
+  height: 350px;
+  padding: 20px;
+  width: 720px;
+  position: absolute;
+  transform: translate(-50%,-50%);
+  top: 50%;
+  left: 50%;
+}
+
+/*FORM INPUTS*/
+.form-addExperience input , .form-addSkill input, .form-login input, .form-signup input, .form-getContact input {
   background-color:#97D9E1;
   border-radius: 12px;
   border: 0;
   box-sizing: border-box;
   color: black;
   font-size: 18px;
-  /* height: 100%; */
+  height: 100%;
   outline: 0;
   padding: 4px 20px 0;
   width: 100%;
@@ -85,15 +106,29 @@ input {
   padding: 0.5rem;
 }
 
+.form-editExperience input {
+  background-color:#97D9E1;
+  border-radius: 12px;
+  border: 0;
+  box-sizing: border-box;
+  color: black;
+  font-size: 18px;
+  height: 100%;
+  outline: 0;
+  padding: 4px 20px 0;
+  width: 100%;
+  margin-bottom: 40px;
+  padding: 0.5rem;
+}
 
-.input-container-login , .input-container-signup{
+.input-container-login , .input-container-signup , .input-container-editExperience{
   position: relative;
   width: 100%;
 }
 
-/*Buttons*/
+/*BUTTONS*/
 
-.btn-logout , .btn-login, .btn-signup, .btn-submit-skill, .btn-submit-experience{
+.btn-logout , .btn-login, .btn-signup, .btn-submit-skill, .btn-submit-experience, .btn-submit-edition{
   background: #97D9E1;
   border: 1px solid #97D9E1;
   border-radius: 12px;
@@ -107,7 +142,7 @@ input {
   transition: 0.3s ease background;
   width: 100%;
 }
-.btn-addSkill, .btn-addExperience, .btn-back, .btn-delete, .btn-edit-experience, .btn-contact, .btn-submit-email{
+.btn-addSkill, .btn-addExperience, .btn-back, .btn-contact{
   background: #D9AFD9;
   border: 1px solid #97D9E1;
   border-radius: 12px;
@@ -121,7 +156,22 @@ input {
   text-transform: uppercase;
   transition: 0.3s ease background;
   width: 15%;
+}
 
+.btn-delete, .btn-edit-experience , .btn-submit-email{
+  background: #D9AFD9;
+  border: 1px solid #97D9E1;
+  border-radius: 12px;
+  color:black;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  padding: 8px 16px;
+  margin:1rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: 0.3s ease background;
+  width: 15%;
 }
 
 button:hover {
@@ -130,8 +180,7 @@ button:hover {
   transition: 0.3s ease background;
 }
 
-
-/*SKILLIST*/
+/*SKILLIST & SKILLDETAILS*/
 
 .SkilList{
   margin-top: 10rem;
@@ -140,92 +189,63 @@ button:hover {
   justify-content: space-around;
 }
 
-.SkilList-items, .SkilListDetails-items{
-  width:20%;
+.SkilList-items img {
+  width:50%;
 }
 
-.SkilList-items img, .SkilListDetails-items img{
-  width:50%;
-  height: 50%;
+.SkilList-items {
+  width: 20%;
+}
+
+.SkilDetails-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.SkilDetails{
+  margin-top: 10rem;
+  display: flex;
+}
+
+.SkilListDetails-items{
+  width:30%;
+}
+
+.SkilListDetails-items img{
+  width:70%;
+  height: 90%;
+  margin-bottom: 2rem;
 }
 
 .title-skilList , .title-SkilListDetails {
   margin-top: 5rem;
 } 
 
-.SkilDetails{
-  margin-top: 10rem;
-  display: flex;
-
-}
-
-/*FORMS to add Experience and to add skill*/
-.form-addExperience, .form-addSkill {
-  margin-top: 30px;
-  background-color:white;
-  border-radius: 20px;
-  box-sizing: border-box;
-  height: 400px;
-  padding: 20px;
-  width: 720px;
-  position: absolute;
-  transform: translate(-50%,-50%);
-  top: 50%;
-  left: 50%;
-}
+/*EXPERIENCE DETAILS*/
 
 .ExperienceDetails {
   padding: 3rem;
   margin-left: 5rem;
   margin-right: 5rem;
-  float: right;
+  /* float: right; */
 }
 
 .ExperienceDetails img {
   width:500px;
   float:left;
+  margin-right: 5%;
 }
 
-.ExperienceDetails p {
-  /* margin-left: 5rem; */
- 
+.ExperienceDetails p button {
+
   padding-top: 5rem;
   padding-left:2rem;
-
+  float:right;
 }
 
-/*Form Get in contact*/
 
-.form-getContact{
-  margin-top: 30px;
-  background-color:white;
-  border-radius: 20px;
-  box-sizing: border-box;
-  height: 400px;
-  padding: 20px;
-  /* width: 720px; */
-  /* position: absolute; */
-  /* transform: translate(-50%,-50%); */
-  top: 50%;
-  left: 50%;
-  
-}
 
-.form-getContact > input{
 
-  background: #97D9E1;
-  border: 1px solid #97D9E1;
-  border-radius: 12px;
-  color:black;
-  cursor: pointer;
-  display: inline-block;
-  font-size: 14px;
-  padding: 8px 16px;
-  text-decoration: none;
-  text-transform: uppercase;
-  transition: 0.3s ease background;
-  width: 100%;
-}
 
 
 
